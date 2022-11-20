@@ -11,10 +11,11 @@ import java.util.List;
 
 public class CalculatorServiceTest {
 
+    CalculatorService calculatorService = new CalculatorService();
     @ParameterizedTest
     @MethodSource("plusTestSuites")
     public void plusTest(int num1, int num2, int result){
-        Assertions.assertEquals(result, CalculatorService.plus(num1, num2));
+        Assertions.assertEquals(result, calculatorService.plus(num1, num2));
     }
 
     public static List<Arguments> plusTestSuites(){
@@ -29,7 +30,7 @@ public class CalculatorServiceTest {
     @ParameterizedTest
     @MethodSource("minusTestSuites")
     public void minusTest(int num1, int num2, int result){
-        Assertions.assertEquals(result, CalculatorService.minus(num1, num2));
+        Assertions.assertEquals(result, calculatorService.minus(num1, num2));
     }
 
     public static List<Arguments> minusTestSuites(){
@@ -44,7 +45,7 @@ public class CalculatorServiceTest {
     @ParameterizedTest
     @MethodSource("multiplyTestSuites")
     public void multiplyTest(int num1, int num2, int result){
-        Assertions.assertEquals(result, CalculatorService.multiply(num1, num2));
+        Assertions.assertEquals(result, calculatorService.multiply(num1, num2));
     }
 
     public static List<Arguments> multiplyTestSuites(){
@@ -59,7 +60,7 @@ public class CalculatorServiceTest {
     @ParameterizedTest
     @MethodSource("divideTestSuites")
     public void divideTest(int num1, int num2, int result){
-        Assertions.assertEquals(result, CalculatorService.divide(num1, num2));
+        Assertions.assertEquals(result, calculatorService.divide(num1, num2));
     }
 
     public static List<Arguments> divideTestSuites(){
@@ -74,14 +75,14 @@ public class CalculatorServiceTest {
     @Test
     public void divideByZeroThrowsException(){
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            CalculatorService.divide(5, 0);
+            calculatorService.divide(5, 0);
         });
     }
 
     @Test
     public void plusByNullParamThrowsException(){
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            CalculatorService.plus(0, 1);
+            calculatorService.plus(0, 1);
         });
     }
 }

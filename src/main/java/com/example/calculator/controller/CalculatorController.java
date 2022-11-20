@@ -11,24 +11,30 @@ import java.util.OptionalInt;
 @RestController
 public class CalculatorController {
 
+    CalculatorService calculatorService;
+
+    public CalculatorController(CalculatorService calculatorService) {
+        this.calculatorService = calculatorService;
+    }
+
     @GetMapping("/plus")
-    public String plus(@RequestParam(name = "num1", defaultValue = "0") Integer num1, @RequestParam(name = "num2", defaultValue = "0") Integer num2){
-        return num1 + " + " + num2 + " = " + CalculatorService.plus(num1, num2);
+    public String plus(@RequestParam(required = false) Integer num1, @RequestParam(required = false) Integer num2){
+        return num1 + " + " + num2 + " = " + calculatorService.plus(num1, num2);
     }
 
     @GetMapping("/minus")
-    public String minus(@RequestParam(name = "num1", defaultValue = "0") Integer num1, @RequestParam(name = "num2", defaultValue = "0") Integer num2){
-        return num1 + " - " + num2 + " = " + CalculatorService.minus(num1, num2);
+    public String minus(@RequestParam(required = false) Integer num1, @RequestParam(required = false) Integer num2){
+        return num1 + " - " + num2 + " = " + calculatorService.minus(num1, num2);
     }
 
     @GetMapping("/multiply")
-    public String multiply(@RequestParam(name = "num1", defaultValue = "0") Integer num1, @RequestParam(name = "num2", defaultValue = "0") Integer num2){
-        return num1 + " * " + num2 + " = " + CalculatorService.multiply(num1, num2);
+    public String multiply(@RequestParam(required = false) Integer num1, @RequestParam(required = false) Integer num2){
+        return num1 + " * " + num2 + " = " + calculatorService.multiply(num1, num2);
     }
 
     @GetMapping("/divide")
-    public String divide(@RequestParam(name = "num1", defaultValue = "0") Integer num1, @RequestParam(name = "num2", defaultValue = "0") Integer num2){
-        return num1 + " / " + num2 + " = " + CalculatorService.divide(num1, num2);
+    public String divide(@RequestParam(required = false) Integer num1, @RequestParam(required = false) Integer num2){
+        return num1 + " / " + num2 + " = " + calculatorService.divide(num1, num2);
     }
 
     @GetMapping("/")
