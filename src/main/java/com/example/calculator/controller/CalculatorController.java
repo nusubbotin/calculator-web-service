@@ -12,17 +12,17 @@ import java.util.OptionalInt;
 public class CalculatorController {
 
     @GetMapping("/plus")
-    public String plus(@RequestParam(name = "num1") Integer num1, @RequestParam(name = "num2") Integer num2){
+    public String plus(@RequestParam(name = "num1", defaultValue = "0") Integer num1, @RequestParam(name = "num2", defaultValue = "0") Integer num2){
         return num1 + " + " + num2 + " = " + CalculatorService.plus(num1, num2);
     }
 
     @GetMapping("/minus")
-    public String minus(@RequestParam(name = "num1") Integer num1, @RequestParam(name = "num2") Integer num2){
+    public String minus(@RequestParam(name = "num1", defaultValue = "0") Integer num1, @RequestParam(name = "num2", defaultValue = "0") Integer num2){
         return num1 + " - " + num2 + " = " + CalculatorService.minus(num1, num2);
     }
 
     @GetMapping("/multiply")
-    public String multiply(@RequestParam(name = "num1") Integer num1, @RequestParam(name = "num2") Integer num2){
+    public String multiply(@RequestParam(name = "num1", defaultValue = "0") Integer num1, @RequestParam(name = "num2", defaultValue = "0") Integer num2){
         return num1 + " * " + num2 + " = " + CalculatorService.multiply(num1, num2);
     }
 

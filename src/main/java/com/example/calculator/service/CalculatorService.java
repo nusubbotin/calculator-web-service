@@ -8,8 +8,8 @@ import java.util.OptionalInt;
 
 public class CalculatorService {
 
-    public static void validationParams(Integer operand1, Integer operand2){
-        if (operand1 == 0 || operand1 == 0){
+    private static void validationParams(Integer operand1, Integer operand2){
+        if (operand1 == 0 || operand2 == 0){
             throw new IllegalArgumentException("Оба операнда должны быть переданны");
         }
     }
@@ -29,10 +29,10 @@ public class CalculatorService {
     }
 
     public static Integer divide(Integer operand1, Integer operand2){
-        validationParams(operand1, operand2);
         if (operand2 == 0) {
             throw new IllegalArgumentException("Делитель не может быть 0");
         }
+        validationParams(operand1, operand2);
         return (Integer) operand1 / operand2;
     }
 

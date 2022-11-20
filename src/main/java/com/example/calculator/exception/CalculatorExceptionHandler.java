@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class CalculatorExceptionHandler{
 
     @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<ErrorMessage> handlerRuntimeException(RuntimeException e){
-        ErrorMessage message = new ErrorMessage("Ошибка при выполнении операции: " + e.getMessage());
-        return new ResponseEntity<ErrorMessage>(message, HttpStatus.EXPECTATION_FAILED);
-
+    public ResponseEntity<String> handlerRuntimeException(RuntimeException e){
+        return ResponseEntity.badRequest().body("Ошибка при выполнении операции: " + e.getMessage());
     }
 }
